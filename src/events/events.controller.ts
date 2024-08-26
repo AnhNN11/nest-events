@@ -17,6 +17,7 @@ import { CreateEventDto } from './create-event.dto';
 import { Event } from './event.entity';
 import { UpdateEventDto } from './update-event.dto';
 import { Attendee } from './attendees.entity';
+import { EventsService } from './event.service';
 
 @Controller('/events')
 export class EventsController {
@@ -27,6 +28,7 @@ export class EventsController {
     private readonly repository: Repository<Event>,
     @InjectRepository(Attendee)
     private readonly attendeeRepository: Repository<Attendee>,
+    private readonly eventsService: EventsService,
   ) {}
 
   @Get()
